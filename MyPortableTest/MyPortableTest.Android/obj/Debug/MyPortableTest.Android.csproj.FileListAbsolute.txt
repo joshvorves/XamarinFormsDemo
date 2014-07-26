@@ -1,0 +1,2 @@
+C:\code\Demo\MyPortableTest\MyPortableTest.Android\obj\Debug\MyPortableTest.Android.csproj.App.config
+C:\code\Demo\MyPortableTest\MyPortableTest.Android\obj\Debug\MyPortableTest.Android.csprojResolveAssemblyReference.cache

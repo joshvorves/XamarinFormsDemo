@@ -1,0 +1,9 @@
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\MyPortableTest.dll
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\MyPortableTest.pdb
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\EventDay.Api.Client.dll
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\Xamarin.Forms.Core.dll
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\Xamarin.Forms.Core.xml
+C:\code\Demo\MyPortableTest\MyPortableTest\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\code\Demo\MyPortableTest\MyPortableTest\obj\Debug\MyPortableTest.dll
+C:\code\Demo\MyPortableTest\MyPortableTest\obj\Debug\MyPortableTest.pdb
