@@ -1,1 +1,0 @@
-C:\code\Demo\Demo\obj\Debug\Demo.csproj.App.config
