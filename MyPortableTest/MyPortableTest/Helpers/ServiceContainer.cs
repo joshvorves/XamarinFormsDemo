@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EventDay.Portable.Helpers
+namespace MyPortableTest.Helpers
 {
     /// <summary>
     /// A simple service container implementation, singleton only

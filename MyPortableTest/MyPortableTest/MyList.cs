@@ -1,30 +1,24 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using EventDay.Api.Client;
 using Xamarin.Forms;
+using MyPortableTest.Interfaces;
 
 namespace MyPortableTest
 {
-    class TimeModel
-    {
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public TimeModel()
-        {
-            Time = DateTime.Now.ToString("T");
-            Date = DateTime.Now.ToString("D");
-        }
-    }
+
     public class MyList : ContentPage
     {
-        private readonly ObservableCollection<TimeModel> _items = new ObservableCollection<TimeModel>();
+        private readonly ObservableCollection<string> _items = new ObservableCollection<string>();
 
         public MyList()
         {
-            var list = new ListView { ItemsSource = _items };
+
+            var list = new ListView { ItemsSource = App.Eventstate.Sessions };
 
             var button = new Button { Text = "Click me" };
 
-            button.Clicked += (sender, e) => _items.Add(new TimeModel());
+            button.Clicked += (sender, e) => _items.Add(string.Empty);
 
             var stack = new StackLayout();
 
@@ -33,8 +27,8 @@ namespace MyPortableTest
 
             var cell = new DataTemplate(typeof(TextCell));
 
-            cell.SetBinding(TextCell.TextProperty, "Date");
-            cell.SetBinding(TextCell.DetailProperty, "Time");
+            cell.SetBinding(TextCell.TextProperty, "Title");
+            cell.SetBinding(TextCell.DetailProperty, "Description");
 
             list.ItemTemplate = cell;
 
@@ -44,9 +38,9 @@ namespace MyPortableTest
                 if (list.SelectedItem == null) return;
 
                 var page = new ContentPage();
-                var timeModel = list.SelectedItem as TimeModel;
+                var sessionState = list.SelectedItem as SessionState;
 
-                var label = new Label { Text = timeModel.Date + timeModel.Time };
+                var label = new Label { Text = sessionState.Title };
 
                 page.Content = label;
 

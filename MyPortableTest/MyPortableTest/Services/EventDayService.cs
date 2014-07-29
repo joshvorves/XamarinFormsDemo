@@ -7,7 +7,7 @@ using EventDay.Api.Client.Configuration;
 using MyPortableTest.Interfaces;
 using EventDayApiConfiguration = EventDay.Api.Client.EventDayApiConfiguration;
 
-namespace EventDay.Portable.Services
+namespace MyPortableTest.Services
 {
     public class EventDayService : IEventDayService
     {

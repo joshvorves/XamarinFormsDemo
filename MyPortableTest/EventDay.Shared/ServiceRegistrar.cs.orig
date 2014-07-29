@@ -1,0 +1,207 @@
+
+using System;
+
+using System.IO;
+
+
+using EventDay.Portable.DataLayer;
+using EventDay.Portable.Helpers;
+using EventDay.Portable.Interfaces;
+using EventDay.Portable.Services;
+using EventDay.Portable.ViewModels;
+//using SQLite;
+
+
+
+#if __IOS__
+using EventDay.iOS.PlatformSpecific;
+#elif __ANDROID__
+using EventDayAndroid.PlatformSpecific;
+#elif WINDOWS_PHONE
+using Windows.Storage;
+using EventDay.WindowsPhone.PlatformSpecific;
+#endif
+
+namespace MyExpenses.Helpers
+{
+    public static class ServiceRegistrar
+    {
+
+        public static void Startup()
+        {
+
+//            SQLiteConnection connection = null;
+//
+//            string dbLocation = "eventday.sqlite";
+            ILogger logger = new NullLogger();
+
+#if __ANDROID__
+      //var library = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+      //dbLocation = Path.Combine(library, dbLocation);
+      ServiceContainer.Register<IHttpClientHelper>(() => new HttpClientHelper());
+        logger = new AndroidLogger();
+#elif __IOS__
+
+//            var docsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+//            var libraryPath = Path.Combine(docsPath, "../Library/");
+//            dbLocation = Path.Combine(libraryPath, dbLocation);
+            ServiceContainer.Register<IHttpClientHelper>(() => new HttpClientHelper());
+
+#elif WINDOWS_PHONE
+      //dbLocation = Path.Combine(ApplicationData.Current.LocalFolder.Path, dbLocation);
+      ServiceContainer.Register<INavigationService>(()=>new NavigationService());
+      
+#endif
+
+
+<<<<<<< HEAD
+            //connection = new SQLiteConnection(dbLocation);
+
+            ServiceContainer.Register<IAuthService>(() => new AuthService());
+            //ServiceContainer.Register<ILogin>(() => new EventDayLogin());
+            //var database = new EventDayDatabase(connection);
+            //ServiceContainer.Register(database);
+            //ServiceContainer.Register<IDataManager>(() => new DataManager(database));
+=======
+//            connection = new SQLiteConnection(dbLocation);
+//
+//            ServiceContainer.Register<IAuthService>(() => new AuthService());
+//            ServiceContainer.Register<ILogin>(() => new EventDayLogin());
+//            var database = new EventDayDatabase(connection);
+//            ServiceContainer.Register(database);
+//            ServiceContainer.Register<IDataManager>(() => new DataManager(database));
+>>>>>>> 6f2b6fb93995add1d363dc5bfb9e825ca087e377
+            ServiceContainer.Register<IRSSReaderService>(() => new RSSReaderService());
+            ServiceContainer.Register<ISessionReaderService>(() => new SessionReaderService());
+            ServiceContainer.Register(() => new RSSViewModel());
+            ServiceContainer.Register(() => new AboutViewModel());
+            ServiceContainer.Register(() => new HomeViewModel());
+            ServiceContainer.Register(() => new SessionsViewModel());
+            ServiceContainer.Register(() => new SponsorsViewModel());
+            ServiceContainer.Register(() => new VenueViewModel());
+            ServiceContainer.Register(() => new LocationViewModel());
+            ServiceContainer.Register(() => new AttendeeViewModel());
+            ServiceContainer.Register(() => new MyProfileViewModel());
+            ServiceContainer.Register(() => new MyTicketViewModel());
+            ServiceContainer.Register(() => new MySessionsViewModel());
+            ServiceContainer.Register(() => new MySpeakersViewModel());
+            ServiceContainer.Register(() => new MyFeedbackViewModel());
+            ServiceContainer.Register(() => new SimpleSessionViewModel());
+            ServiceContainer.Register(() => new SessionTabViewModel());
+            ServiceContainer.Register<IEventDayService>(() => new EventDayService(logger));
+        }
+
+        ///-------Easy way to get any of our view models or services ----//
+        public static AttendeeViewModel Attendee
+        {
+            get { return ServiceContainer.Resolve<AttendeeViewModel>(); }
+        }
+
+        public static HomeViewModel Home
+        {
+            get { return ServiceContainer.Resolve<HomeViewModel>(); }
+        }
+
+        public static AboutViewModel About
+        {
+            get { return ServiceContainer.Resolve<AboutViewModel>(); }
+        }
+
+        public static SessionsViewModel Sessions
+        {
+            get { return ServiceContainer.Resolve<SessionsViewModel>(); }
+        }
+
+        public static SimpleSessionViewModel SimpleSessions
+        {
+            get { return ServiceContainer.Resolve<SimpleSessionViewModel>(); }
+        }
+        public static LocationViewModel Location
+        {
+            get { return ServiceContainer.Resolve<LocationViewModel>(); }
+        }
+
+        public static SpeakersViewModel Speakers
+        {
+            get { return ServiceContainer.Resolve<SpeakersViewModel>(); }
+        }
+
+        public static VenueViewModel Venue
+        {
+            get { return ServiceContainer.Resolve<VenueViewModel>(); }
+        }
+
+        public static IEventDayService EventDayService
+        {
+            get { return ServiceContainer.Resolve<IEventDayService>(); }
+        }
+
+        public static MyProfileViewModel MyProfile
+        {
+            get { return ServiceContainer.Resolve<MyProfileViewModel>(); }
+        }
+
+        public static MyTicketViewModel MyTicket
+        {
+            get { return ServiceContainer.Resolve<MyTicketViewModel>(); }
+        }
+
+        public static MySessionsViewModel MySession
+        {
+            get { return ServiceContainer.Resolve<MySessionsViewModel>(); }
+        }
+
+        public static MySpeakersViewModel MySpeakers
+        {
+            get { return ServiceContainer.Resolve<MySpeakersViewModel>(); }
+        }
+
+        public static MyFeedbackViewModel MyFeedback
+        {
+            get { return ServiceContainer.Resolve<MyFeedbackViewModel>(); }
+        }
+
+        public static SponsorsViewModel Sponsors
+        {
+            get { return ServiceContainer.Resolve<SponsorsViewModel>(); }
+        }
+
+        public static SessionTabViewModel SessionTab
+        {
+            get { return ServiceContainer.Resolve<SessionTabViewModel>(); }
+        }
+        public static ILogin LoginService
+        {
+            get { return ServiceContainer.Resolve<ILogin>(); }
+        }
+
+        public static IAuthService AuthService
+        {
+            get { return ServiceContainer.Resolve<IAuthService>(); }
+        }
+
+        public static IHttpClientHelper HttpClientHelper
+        {
+            get { return ServiceContainer.Resolve<IHttpClientHelper>(); }
+        }
+
+        public static IRSSReaderService RSSReaderService
+        {
+            get { return ServiceContainer.Resolve<IRSSReaderService>(); }
+        }
+
+        public static ISessionReaderService SessionTabReaderService
+        {
+            get { return ServiceContainer.Resolve<ISessionReaderService>(); }
+        }
+#if WINDOWS_PHONE
+    /// <summary>
+    /// for WP8
+    /// </summary>
+    public static INavigationService NavigationService
+    {
+      get { return ServiceContainer.Resolve<INavigationService>(); }
+    }
+#endif
+    }
+}
