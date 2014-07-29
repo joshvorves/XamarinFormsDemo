@@ -40,7 +40,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContainer.cs" />
     <Compile Include="ServiceRegistrar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyPortableTest\MyPortableTest\MyPortableTest.csproj">
+      <Project>{7d2028de-d073-4bcd-a609-ab94f490f52e}</Project>
+      <Name>MyPortableTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

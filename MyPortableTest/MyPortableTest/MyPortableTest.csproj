@@ -39,10 +39,8 @@
     <Compile Include="App.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="Helpers\JsonSettingsSerializer.cs" />
-    <Compile Include="Helpers\PlatformSpecific\HttpClientHelper.cs" />
-    <Compile Include="Helpers\ServiceContainer.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Interfaces\IEventDayService.cs" />
-    <Compile Include="Interfaces\IHttpClientHelper.cs" />
     <Compile Include="Interfaces\ISettingsSerializer.cs" />
     <Compile Include="MyList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,10 +57,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\..\..\X\packages\Xam.Plugins.Settings.1.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\..\..\X\packages\Xam.Plugins.Settings.1.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>

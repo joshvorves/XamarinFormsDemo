@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyPortableTest.Helpers
+namespace Shared
 {
     /// <summary>
     /// A simple service container implementation, singleton only

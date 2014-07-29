@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using EventDay.Api.Client;
+using MyPortableTest.Helpers;
 using Xamarin.Forms;
 using MyPortableTest.Interfaces;
 
@@ -14,7 +15,7 @@ namespace MyPortableTest
         public MyList()
         {
 
-            var list = new ListView { ItemsSource = App.Eventstate.Sessions };
+            var list = new ListView { ItemsSource = AppSettings.EventState.Sessions };
 
             var button = new Button { Text = "Click me" };
 
